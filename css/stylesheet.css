@@ -1,0 +1,42 @@
+.login {
+	background: yellow;
+
+	margin-top: 20px;
+	margin-left: auto;
+    margin-right: auto;
+
+	border: 5px solid black;
+
+	hight: 100px;
+	width: 300px;
+}
+
+.main {
+	background: green;
+	
+	margin-top: 20px;
+	margin-left: auto;
+    margin-right: auto;
+
+	border: 5px solid black;
+}
+
+.contact {
+	background: blue;
+
+	margin-top: 20px;
+	margin-left: auto;
+    margin-right: auto;
+
+	border: 5px solid black;
+}
+
+.updel {
+	background: pink;
+
+	margin-top: 20px;
+	margin-left: auto;
+    margin-right: auto;
+
+	border: 5px solid black;
+}
