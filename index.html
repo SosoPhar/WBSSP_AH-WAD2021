@@ -17,7 +17,7 @@
 
         input[type=submit] {
             width: 100%;
-            background-color: #49afa0;
+            background-color: #092834;
             color: white;
             padding: 14px 20px;
             margin: 8px 0;
@@ -47,7 +47,7 @@
 <h2>Login</h2>
 <p><input class="flex-box"> Username</input></p>
 <p><input class=""> Password</input></p>
-<p><button class="w3-button w3-black w3-round-large">Login</button></p>
+    <input type="submit" id="Log" value="Login">
 </section>
 
 <section class="main">
@@ -66,37 +66,34 @@
 
 <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=12.6287841796875%2C52.3130964236375%2C13.775482177734377%2C52.681793961873545&amp;layer=mapnik" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/#map=11/52.4978/13.2021">Größere Karte anzeigen</a></small>
     </section>
-
 <section class="contact">
-<h2>Add Contact</h2>
+    <h2>Add Contact</h2>
 
-  <label for="fname">First name:</label>
-  <input type="text" id="fname" name="firstname" placeholder="Your name.."><br><br>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name..." required name="Name"><br><br>
 
-  <label for="lastname">Last name:</label>
-  <input type="text" id="lastname" name="lastname" value=""><br><br>
+    <label for="lastname">Last name:</label>
+    <input type="text" id="lastname" name="lastname" placeholder="Your lastname..." required last name="last name"><br><br>
 
-  <label for="strandnum">Street & Number:</label>
-  <input type="text" id="strandnum" name="strandnum" value=""><br><br>
+    <label for="strandnum">Street & Number:</label>
+    <input type="text" id="strandnum" name="strandnum" placeholder="Street, Number..." required Adress="Street, Number"><br><br>
 
-  <label for="zip">ZIP code:</label>
-  <input type="text" id="zip" name="zip" value=""><br><br>
+    <label for="zip">ZIP code:</label>
+    <input type="text" id="zip" name="zip" placeholder=" ZIP code..."required ZIP code="ZIP code"><br><br>
 
-  <label for="city">City:</label>
-  <input type="text" id="city" name="city" value=""><br><br>
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" placeholder="City..." required City="City"><br><br>
 
-  <label for="state">State:</label>
-  <input type="text" id="state" name="state" value=""><br><br>
+    <label for="state">State:</label>
+    <input type="text" id="state" name="state"  placeholder="State..." ><br><br>
 
-  <label for="country">Country:</label>
-  <input type="text" id="country" name="country" value=""><br><br>
-
-<p>Private or public?</p>
+    <label for="country">Country:</label>
+    <input type="text" id="country" name="country"  placeholder="Country..." ><br><br>
+    <p>Private or public?</p>
 <div>
   <input type="checkbox" id="private" name="private"checked>
   <label for="private">Private</label>
-</div>
-<div>
+
   <input type="checkbox" id="public" name="public">
   <label for="public">Public</label>
   <br><br>

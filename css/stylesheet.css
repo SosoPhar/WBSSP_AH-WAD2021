@@ -36,8 +36,6 @@ p {
 	font-family: 'Fira Sans', sans-serif;
 }
 
-
-
 .contact {
 	background: lightgray;
 
@@ -49,7 +47,7 @@ p {
 }
 
 .updel {
-	background: cadetblue;
+	background: lightsteelblue;
 
 	margin-top: 20px;
 	margin-left: auto;
