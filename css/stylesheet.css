@@ -1,44 +1,43 @@
 .login {
-	background: yellow;
+	background: whitesmoke;
 
 	margin-top: 20px;
 	margin-left: auto;
     margin-right: auto;
 
-	border: 5px solid black;
+	border: 2px double;
 
-	hight: 100px;
-	width: 300px;
 }
 
 .main {
-	background: green;
+	background: whitesmoke;
 	
 	margin-top: 20px;
 	margin-left: auto;
     margin-right: auto;
 
-	border: 5px solid black;
+	border: 2px double;
+
 }
 
 .contact {
-	background: blue;
+	background: paleturquoise;
 
 	margin-top: 20px;
 	margin-left: auto;
     margin-right: auto;
 
-	border: 5px solid black;
+	border: 2px double;
 }
 
 .updel {
-	background: pink;
+	background: palegoldenrod;
 
 	margin-top: 20px;
 	margin-left: auto;
     margin-right: auto;
 
-	border: 5px solid black;
+	border: 2px double;
 }
 
-H2 { text-align: center }
+H2 { text-align: left }
