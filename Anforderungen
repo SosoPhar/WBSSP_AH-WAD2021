@@ -1,0 +1,83 @@
+Anforderungen
+
+Login-Screen:
+
+    Field: Username (required)
+    Field: Password (required)
+    Button: Login (muss nicht funktionieren,  beim Draufklicken passiert nichts)
+
+Main-Screen:
+
+    Karte von Berlin (Mitte)
+    3 hart-codierte Adressen links neben der Karte
+    3 Buttons: "Show my contacts" "Show all contacts" "Add new contact" (müssen nicht nicht funktionieren,  beim Draufklicken passiert nichts)
+
+Add-Contact-Screen:
+
+    Field: First name (required)
+    Field: Last name (required)
+    Field: Street & Number (required)
+    Field: ZIP (required)
+    Field: City (required)
+    Field: State (Bundesland)
+    Field: Country
+    Checkbox: private/public (private is default)
+    Dropdown: Owner of new contact ("self" is default, "normalo" is 2nd option)
+    Button: "Add"/"Save" (muss nicht funktionieren,  beim Draufklicken passiert nichts)
+
+Update/Delete-Screen
+
+    Field: First name: Bob (example)
+    Field: Last name:  Brown (example)
+    Field: Street & Number:  Berliner Straße 22 (example)
+    Field: ZIP: 10715 (example)
+    Field: Berlin (example)
+    Field: Berlin (example)
+    Field: Germany (example)
+    Checkbox: private (example)
+    Dropdown: "normalo" (example)
+    Buttons: "Update" and "Delete"  (müssen nicht funktionieren,  beim Draufklicken passiert nichts)
+
+// Fragen und Antworten:
+
+Frage: Was ist mit Screens gemeint?
+
+Antwort: Die Screens sind in WAD-Einfuehrung-Uebungen.pdf (Seite 20 ff.) beschrieben. Es sind 4 Stück. Alle 4 sollen in einer einzigen index.html-Datei kodiert werden, in 4 Abschnitten (1 Abschnitt = 1 Screen). Wenn die index.html-Datei im Browser geöffnet wird, soll eine Seite mit 4 Abschnitten, einer nach dem anderen, angezeigt werden.
+
+
+Frage: Soll für jeden Screen eine eigene .htlm-Datei angelegt werden?
+
+Antwort: Nein, es soll nur eine index.html-Datei angelegt werden. Diese index.html-Datei beinhaltet alle Screens.
+
+
+Frage: Müssen die Buttons, z.B., "Login", "Add new contact",  auf den Screens funktionieren? Speziell, wenn auch "Add new Contact" geklickt wird muss da der "Add-Contact-Screen" aufgehen?
+
+Antwort: Nein, keiner der Button muss funktionieren. Sie sollen bloss angezeigt werden, müssen aber nix tun.
+
+
+Frage: Welche IDE?
+
+Antwort: Visual Studio, Web-Dev Plugins für Eclipse, Intellij
+
+
+Frage:  Sollen wir die Kontakte in einer DB speichern?
+
+Antwort: Nein, erstmal nicht.
+
+
+Frage:  Sollen die Karte angezeigt werden oder genügt ein Platzhalter?
+
+Antwort: Eine Karte von Berlin soll angezeigt werden. Dazu bitte die Tutorials der Kartenanbieter konsultieren.
+
+
+Frage:  Wie soll das Projektverzeichnis aussehen?
+
+Antwort:
+
+adviz/
+
+        |- css/
+
+                   |- stylesheet.css
+
+         |- index.html
