@@ -11,14 +11,32 @@
 
 .main {
 	background: whitesmoke;
-	
+
 	margin-top: 20px;
 	margin-left: auto;
-    margin-right: auto;
+	margin-right: auto;
 
 	border: 2px double;
-
 }
+aside {
+	width: 40%;
+	padding-left: .5rem;
+	margin-left: .5rem;
+	float: left;
+	box-shadow: inset 5px 0 5px -5px #29627e;
+	font-style: italic;
+	color: #29627e;
+}
+
+aside > p {
+	margin: .5rem;
+}
+
+p {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+
 
 .contact {
 	background: paleturquoise;
@@ -31,7 +49,7 @@
 }
 
 .updel {
-	background: palegoldenrod;
+	background: cadetblue;
 
 	margin-top: 20px;
 	margin-left: auto;
