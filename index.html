@@ -5,6 +5,15 @@
     <title>AIWEBÜ</title>
     <link rel="stylesheet" href="css/stylesheet.css" />
     <style>
+        input[type=password], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
         input[type=text], select {
             width: 100%;
             padding: 12px 20px;
@@ -16,12 +25,12 @@
         }
 
         input[type=submit] {
-            width: 100%;
+            width: 50%;
             background-color: #092834;
             color: white;
             padding: 14px 20px;
             margin: 8px 0;
-            border: none;
+            border: 20px;
             border-radius: 4px;
             cursor: pointer;
         }
@@ -45,8 +54,13 @@
 
 <section class="login">
 <h2>Login</h2>
-<p><input class="flex-box"> Username</input></p>
-<p><input class=""> Password</input></p>
+
+    <label for="Uname">Username:</label>
+    <input class="login" type="text" id="Uname" name="Username" placeholder="Your username..." required ><br><br>
+
+    <label for="Pword">Password:</label>
+    <input type="password" id="Pword" name="Password" required ><br><br>
+
     <input type="submit" id="Log" value="Login">
 </section>
 
@@ -156,7 +170,6 @@
 
 <input type="submit" id="update" value="Update">
 <input type="submit" id="delete" value="Delete">
-
 </section>
 
 </body>
