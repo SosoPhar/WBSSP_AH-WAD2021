@@ -24,6 +24,7 @@
 
 	border: 2px double;
 }
+
 aside {
 	width: 40%;
 	padding-left: .5rem;
@@ -38,10 +39,6 @@ aside > p {
 	margin: .5rem;
 }
 
-p {
-	font-family: 'Fira Sans', sans-serif;
-}
-
 .contact {
 	background: lightgray;
 
@@ -54,14 +51,46 @@ p {
 
 .updel {
 	background: lightsteelblue;
-
 	margin-top: 20px;
 	margin-left: auto;
     margin-right: auto;
-
 	border: 2px double;
 }
 
 H2 { text-align: left}
+
+.form--hidden {
+	display: none;
+}
+
+.form__button {
+	width: 20%;
+    background-color: #092834;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form__button:hover {
+	background-color: #006da0;
+}
+
+.form__input {
+	width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 10px solid #ccc;
+    border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.container {
+	font-family: 'Trebuchet MS', sans-serif;
+}
+
 
 

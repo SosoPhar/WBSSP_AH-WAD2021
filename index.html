@@ -3,170 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>AIWEBÜ</title>
-    <link rel="stylesheet" href="css/stylesheet.css" />
+    <link rel="stylesheet" href="css/stylesheet.css"/>
     <style>
-        input[type=password], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 10px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        input[type=text], select {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 10px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        input[type=submit] {
-            width: 50%;
-            background-color: #092834;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: 20px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type=submit]:hover {
-            background-color: #006da0;
-        }
-
         div {
             border-radius: 5px;
             background-color: #f2f2f2;
             padding: 20px;
-        }
-        body {
-            font-family: 'Trebuchet MS', sans-serif;
         }
     </style>
 </head>
 
 <body>
 
-<section class="login">
-<h2>Login</h2>
+<script src="src/main.js"></script>
 
-    <label for="Uname">Username:</label>
-    <input class="login" type="text" id="Uname" name="Username" placeholder="Your username..." required ><br><br>
+<div class="container">
 
-    <label for="Pword">Password:</label>
-    <input type="password" id="Pword" name="Password" required ><br><br>
+    <form class="form" id="login">
+        <h2 class="form__title">Login</h2>
+        <div class="form__message form__message--error">Incorrect password</div>
+        <div class="form__input-group">
+            <input type="text" class="form__input" placeholder="Username" required>
+            <input type="password" class="form__input" placeholder="Password" required>
+        </div>
+        <button class="form__button" type=submit>Login</button>
+    </form>
 
-    <input type="submit" id="Log" value="Login">
-</section>
+    <form class="form form--hidden" id="main">
+        <h2 class="form__title">Main</h2>
+        <button class="form__button" type=submit>Show my contacts</button>
+        <button class="form__button" type=submit>Show all contacts</button>
+        <button class="form__button" type=submit>Add new contact</button>
+        <button class="form__button" type=submit>Update & Delete</button>
+        <iframe width="700" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://m.osmtools.de/?lon=13.380111854642&lat=52.503018015612&zoom=11&mlon=13.382171791164&mlat=52.508451349674&icon=4&iframe=1" ></iframe>
+    </form>
 
-<section class="main">
-<h2>Main</h2>
-<aside>
-    <ul id="Adress">
-<address>
-  <li><a href="https://www.google.de/maps/place/Torstra%C3%9Fe+152,+10119+Berlin/@52.5292736,13.395642,17z/data=!3m1!4b1!4m5!3m4!1s0x47a851e5b954da09:0xc9c10facb8288c1!8m2!3d52.5292704!4d13.3978307">Torstr. 152, 10119 Berlin</a></li><br>
-  <li><a href="https://www.google.de/maps/place/Berlin+Classics/@52.523887,13.4095966,17.33z/data=!4m5!3m4!1s0x47a84e1e3f54fb95:0x46d62a0756deeb7b!8m2!3d52.5241071!4d13.4112295">Rosa-Luxemburg-Straße 14, 10178 Berlin</a></li><br>
-<li><a href="https://www.google.de/maps/place/Behrenstra%C3%9Fe+66,+10117+Berlin/@52.5155384,13.3826993,17z/data=!4m5!3m4!1s0x47a851c5aad39d77:0x6740ca2ec6e8fbfe!8m2!3d52.5155025!4d13.3844481">Behrenstraße 66, 10117 Berlin</a></li>
-</address></ul>
-    <br><span>
-   <input type="submit" id="showCon" value="Show my contacts"><br>
-    <input type="submit" id="showallCon" value="Show all contacts"><br>
-    <input type="submit" id="addnewCon" value="Add new contact"><br>
-    <input type="submit" id="UpandDel" value="Update & Delete">
-    </span></aside>
+    <form class="form form--hidden" id="contact">
+         <h2 class="form__title">Contact</h2>
+         <div class="form__input-group">
+             <input type="text" class="form__input" placeholder="Name" required>
+             <input type="text" class="form__input" placeholder="Lastz Name" required>
+             <input type="text" class="form__input" placeholder="Street, Number" required>
+             <input type="text" class="form__input" placeholder="ZIP code" required>
+             <input type="text" class="form__input" placeholder="City" required>
+             <input type="text" class="form__input" placeholder="State" required>
+             <input type="text" class="form__input" placeholder="Country" required>
+         </div>
+         <label>Private or public?</label>
+         <div class="form__checkbox">
+             <input type="checkbox" id="privatecheck" name="private"checked>
+             <label for="private">Private</label>
+         </div>
+         <label>Owner of new contact:</label>
+         <select class="form__select" id="ownerofcontact">
+             <option value="self">Self</option>
+             <option value="normal">Normalo</option>
+         </select>
+         <button class="form__button" type=submit>Add</button>
+         <button class="form__button" type=submit>Save</button>
+    </form>
 
-<iframe width="700" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://m.osmtools.de/?lon=13.380111854642&lat=52.503018015612&zoom=11&mlon=13.382171791164&mlat=52.508451349674&icon=4&iframe=1" ></iframe>
-</section>
-
-<section class="contact">
-    <h2>Add Contact</h2>
-
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your name..." required name="Name"><br><br>
-
-    <label for="lastname">Last name:</label>
-    <input type="text" id="lastname" name="lastname" placeholder="Your lastname..." required last name="last name"><br><br>
-
-    <label for="strandnum">Street & Number:</label>
-    <input type="text" id="strandnum" name="strandnum" placeholder="Street, Number..." required Adress="Street, Number"><br><br>
-
-    <label for="zip">ZIP code:</label>
-    <input type="text" id="zip" name="zip" placeholder=" ZIP code..."required ZIP code="ZIP code"><br><br>
-
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" placeholder="City..." required City="City"><br><br>
-
-    <label for="state">State:</label>
-    <input type="text" id="state" name="state"  placeholder="State..." ><br><br>
-
-    <label for="country">Country:</label>
-    <input type="text" id="country" name="country"  placeholder="Country..." ><br><br>
-    <p>Private or public?</p>
-<div>
-  <input type="checkbox" id="private" name="private"checked>
-  <label for="private">Private</label>
-  <br><br>
+    <form class="form form--hidden" id="updel">
+        <h2 class="form__title">Update and Delete</h2>
+        <div class="form__input-group">
+            <input type="text" class="form__input" placeholder="" required>
+            <input type="text" class="form__input" placeholder="" required>
+            <input type="text" class="form__input" placeholder="" required>
+            <input type="text" class="form__input" placeholder="" required>
+            <input type="text" class="form__input" placeholder="" required>
+            <input type="text" class="form__input" placeholder="" required>
+            <input type="text" class="form__input" placeholder="" required>
+        </div>
+         <label>Private or public?</label>
+        <div class="form__checkbox">
+            <input type="checkbox" id="privatecheck" name="private"checked>
+            <label for="private">Private</label>
+        </div>
+        <label>Owner of new contact:</label>
+        <select class="form__select" id="ownerofcontact">
+            <option value="self">Self</option>
+            <option value="normal">Normalo</option>
+        </select>
+        <button class="form__button" type=submit>Update</button>
+        <button class="form__button" type=submit>Delete</button>
+    </form>
 </div>
-
-<label for="owner">Owner of new contact:</label>
-<select name="owner" id="owner">
-  <option value="self">Self</option>
-  <option value="normal">Normalo</option>
-</select>
-<br><br>
-
-<input type="submit" id="add" value="Add">
-<input type="submit" id="save" value="Save">
-
-</section>
-
-
-<section class="updel">
-<h2>Update and Delete</h2>
-
-  <label for="firname">First name:</label>
-  <input type="text" name="firname" value="Bob"><br><br>
-
-  <label for="lastname">Last name:</label>
-  <input type="text" name="lastname" value="Brown"><br><br>
-
-  <label for="strandnum">Street & Number:</label>
-  <input type="text" name="strandnum" value="Berliner Straße 22"><br><br>
-
-  <label for="zip">ZIP code:</label>
-  <input type="text" name="zip" value="10715"><br><br>
-
-  <label for="city">City:</label>
-  <input type="text" name="city" value="Berlin"><br><br>
-
-  <label for="state">State:</label>
-  <input type="text" name="state" value="Berlin"><br><br>
-
-  <label for="country">Country:</label>
-  <input type="text" name="country" value="Germany"><br><br>
-
-<p>Private or public?</p>
-<div>
-  <input type="checkbox" id="pr" name="private"checked>
-  <label for="private">Private</label>
-  <br><br>
-</div>
-
-<label for="owner">Owner of new contact:</label>
-<select name="owner" id="own">
-  <option value="self">Self</option>
-  <option value="normal">Normalo</option>
-</select>
-<br><br>
-
-<input type="submit" id="update" value="Update">
-<input type="submit" id="delete" value="Delete">
-</section>
-
 </body>
 </html>
