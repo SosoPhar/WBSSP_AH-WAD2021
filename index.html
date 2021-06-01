@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>AIWEBÜ</title>
-    <link rel="stylesheet" href="css/stylesheet.css"/>
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
     <style>
         div {
             border-radius: 5px;
@@ -11,82 +18,114 @@
             padding: 20px;
         }
     </style>
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css'>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.11/SearchBox-web.js"></script>
 </head>
 
 <body>
 
-<script src="./src/main.js"></script>
+    <div class="container">
 
-<div class="container">
+        <form class="form" id="login">
+            <h2 class="form__title">Login</h2>
+            <div class="form__input-group">
+                <input type="text" class="form__input" id="username" placeholder="Username" required>
+                <input type="password" class="form__input" id="password" placeholder="Password" required>
+            </div>
+            <button class="form__button" id="loginbutton" type=submit>Login</button>
+            <h3 class="form__message--error form--hidden" id="wrong">The Password or Username is incorrect!</h3>
+        </form>
 
-    <form class="form" id="login">
-        <h2 class="form__title">Login</h2>
-        <div class="form__message form__message--error">Incorrect password</div>
-        <div class="form__input-group">
-            <input type="text" class="form__input" placeholder="Username" required>
-            <input type="password" class="form__input" placeholder="Password" required>
-        </div>
-        <button class="form__button" id="loginbutton" type=submit>Login</button>
-    </form>
+        <form class="form form--hidden" id="main">
+            <dev>
+                <h2 class="form__title">Main</h2>
+                <button class="form__button" id="logoutbutton" type=submit>Logout</button>
+            </dev>
+            <h3 class="greeting form--hidden" id="admingreeting">Welcome Admin!</h3>
+            <h3 class="greeting form--hidden" id="normalogreeting">Welcome Normalo</h3>
+            <button class="form__button" id="showmycontacts" type=submit>Show my contacts</button>
+            <button class="form__button" id="showallcontacts" type=submit>Show all contacts</button>
+            <button class="form__button" id="addnewcontact" type=submit>Add new contact</button>
+            <main id="ausgabe"></main>
+            <input type="text" id="query" value="">
+            <button onclick="search()">SEARCH</button>
+            <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.11/SearchBox.css'>
+            <div class="map" id="map"></div>
+            <script>
+				var Berlin = [13.445, 52.545];
+                var map = tt.map({
+                    key: "45TaKrNzVUlcOAckLqHUukxkNxC3FGOz",
+                    container: "map",
+                    center: Berlin,
+					zoom: 9
+                });
 
-    <form class="form form--hidden" id="main">
-        <h2 class="form__title">Main</h2>
-        <button class="form__button" type=submit>Show my contacts</button>
-        <button class="form__button" type=submit>Show all contacts</button>
-        <button class="form__button" type=submit>Add new contact</button>
-        <button class="form__button" type=submit>Update & Delete</button>
-        <iframe width="700" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://m.osmtools.de/?lon=13.380111854642&lat=52.503018015612&zoom=11&mlon=13.382171791164&mlat=52.508451349674&icon=4&iframe=1" ></iframe>
-    </form>
 
-    <form class="form form--hidden" id="contact">
-         <h2 class="form__title">Contact</h2>
-         <div class="form__input-group">
-             <input type="text" class="form__input" placeholder="Name" required>
-             <input type="text" class="form__input" placeholder="Lastz Name" required>
-             <input type="text" class="form__input" placeholder="Street, Number" required>
-             <input type="text" class="form__input" placeholder="ZIP code" required>
-             <input type="text" class="form__input" placeholder="City" required>
-             <input type="text" class="form__input" placeholder="State" required>
-             <input type="text" class="form__input" placeholder="Country" required>
-         </div>
-         <label>Private or public?</label>
-         <div class="form__checkbox">
-             <input type="checkbox" id="privatecheck" name="private"checked>
-             <label for="private">Private</label>
-         </div>
-         <label>Owner of new contact:</label>
-         <select class="form__select" id="ownerofcontact">
-             <option value="self">Self</option>
-             <option value="normal">Normalo</option>
-         </select>
-         <button class="form__button" type=submit>Add</button>
-         <button class="form__button" type=submit>Save</button>
-    </form>
+                var handleResults = function (result) {
+                    console.log(result);
+                }
 
-    <form class="form form--hidden" id="updel">
-        <h2 class="form__title">Update and Delete</h2>
-        <div class="form__input-group">
-            <input type="text" class="form__input" placeholder="" required>
-            <input type="text" class="form__input" placeholder="" required>
-            <input type="text" class="form__input" placeholder="" required>
-            <input type="text" class="form__input" placeholder="" required>
-            <input type="text" class="form__input" placeholder="" required>
-            <input type="text" class="form__input" placeholder="" required>
-            <input type="text" class="form__input" placeholder="" required>
-        </div>
-         <label>Private or public?</label>
-        <div class="form__checkbox">
-            <input type="checkbox" id="privatecheck" name="private"checked>
-            <label for="private">Private</label>
-        </div>
-        <label>Owner of new contact:</label>
-        <select class="form__select" id="ownerofcontact">
-            <option value="self">Self</option>
-            <option value="normal">Normalo</option>
-        </select>
-        <button class="form__button" type=submit>Update</button>
-        <button class="form__button" type=submit>Delete</button>
-    </form>
-</div>
+                var search = function() {
+                    tt.services.fuzzySearch({
+                        key: "45TaKrNzVUlcOAckLqHUukxkNxC3FGOz",
+                        query: document.getElementById("query").value,
+                    }).go().then(handeResults)
+                }
+            </script>
+        </form>
+
+        <form class="form form--hidden" id="contact">
+            <h2 class="form__title">Contact</h2>
+            <div class="form__input-group">
+                <input type="text" class="form__input" id="name" placeholder="Name" required>
+                <input type="text" class="form__input" id="lastname" placeholder="Last Name" required>
+                <input type="text" class="form__input" id="streetnr" placeholder="Street, Number" required>
+                <input type="text" class="form__input" id="zipcode" placeholder="ZIP code" required>
+                <input type="text" class="form__input" id="city" placeholder="City" required>
+                <input type="text" class="form__input" id="state" placeholder="State" required>
+                <input type="text" class="form__input" id="country" placeholder="Country" required>
+            </div>
+            <label>Private or public?</label>
+            <div class="form__checkbox">
+                <input value="1" type="checkbox" id="privatecheck" name="private" checked>
+                <label for="private">Private</label>
+            </div>
+            <label>Owner of new contact:</label>
+            <select class="form__select" id="ownerofcontact">
+                <option value="admin">Self</option>
+                <option value="normal">Normalo</option>
+            </select>
+            <button class="form__button" id="add" type=submit>Add</button>
+            <button class="form__button" id="save" type=submit>Save</button>
+        </form>
+
+        <form class="form form--hidden" id="updel">
+            <h2 class="form__title">Update and Delete</h2>
+            <div class="form__input-group">
+                <input type="text" class="form__input" placeholder="" required>
+                <input type="text" class="form__input" placeholder="" required>
+                <input type="text" class="form__input" placeholder="" required>
+                <input type="text" class="form__input" placeholder="" required>
+                <input type="text" class="form__input" placeholder="" required>
+                <input type="text" class="form__input" placeholder="" required>
+                <input type="text" class="form__input" placeholder="" required>
+            </div>
+            <label>Private or public?</label>
+            <div class="form__checkbox">
+                <input type="checkbox" id="privatecheck" name="private" checked>
+                <label for="private">Private</label>
+            </div>
+            <label>Owner of new contact:</label>
+            <select class="form__select" id="ownerofcontact">
+                <option value="self">Self</option>
+                <option value="normal">Normalo</option>
+            </select>
+            <button class="form__button" type=submit>Update</button>
+            <button class="form__button" type=submit>Delete</button>
+        </form>
+    </div>
+
+    <script src="./src/main.js"></script>
 </body>
 </html>

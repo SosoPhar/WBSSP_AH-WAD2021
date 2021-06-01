@@ -59,6 +59,12 @@ aside > p {
 
 H2 { text-align: left}
 
+.map {
+	width: 800px;
+	height: 800px;
+	margin-left:400px;
+}
+
 .form--hidden {
 	display: none;
 }
