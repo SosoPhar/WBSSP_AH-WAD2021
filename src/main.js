@@ -120,14 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
 		myH1.appendChild(myText4);
 		var ausgabe = document.getElementById("ausgabe");
 		ausgabe.appendChild(myH1);
+		
 
 		result1 = JSON.stringify(Kontakt1).includes("Privat");
 		result2 = JSON.stringify(Kontakt2).includes("Privat");
 		result3 = JSON.stringify(Kontakt3).includes("Privat");
 		result4 = JSON.stringify(Kontakt4).includes("Privat");
 
-		
-		
+
 	}
 
 	function addToLocalStorage() {

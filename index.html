@@ -20,7 +20,9 @@
     </style>
     <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps.css'>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/maps/maps-web.min.js"></script>
+    <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.13.0/services/services-web.min.js"></script>
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.11/SearchBox-web.js"></script>
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.11/SearchBox.css'>
 </head>
 
 <body>
@@ -42,6 +44,7 @@
                 <h2 class="form__title">Main</h2>
                 <button class="form__button" id="logoutbutton" type=submit>Logout</button>
             </dev>
+
             <h3 class="greeting form--hidden" id="admingreeting">Welcome Admin!</h3>
             <h3 class="greeting form--hidden" id="normalogreeting">Welcome Normalo</h3>
             <button class="form__button" id="showmycontacts" type=submit>Show my contacts</button>
@@ -49,29 +52,41 @@
             <button class="form__button" id="addnewcontact" type=submit>Add new contact</button>
             <main id="ausgabe"></main>
             <input type="text" id="query" value="">
-            <button onclick="search()">SEARCH</button>
-            <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.11/SearchBox.css'>
+            <button class="search" id="search">SEARCH</button>
             <div class="map" id="map"></div>
             <script>
-				var Berlin = [13.445, 52.545];
+                
+
+                var Berlin = [13.445, 52.545];
                 var map = tt.map({
                     key: "45TaKrNzVUlcOAckLqHUukxkNxC3FGOz",
                     container: "map",
                     center: Berlin,
-					zoom: 9
+                    zoom: 9
                 });
 
 
-                var handleResults = function (result) {
-                    console.log(result);
+                var moveMap = function (lnglat) {
+                    map.flyTo({
+                        center: lnglat,
+                        zoom: 14
+                    })
                 }
 
-                var search = function() {
+                var handleResults = function (result) {
+                    console.log(result);
+                    if (result.results) {
+                        moveMap(result.results[0].position)
+                    }
+                }
+
+                document.getElementById("search").addEventListener("click", e => {
+                    e.preventDefault();
                     tt.services.fuzzySearch({
                         key: "45TaKrNzVUlcOAckLqHUukxkNxC3FGOz",
                         query: document.getElementById("query").value,
-                    }).go().then(handeResults)
-                }
+                    }).then(handleResults);
+                })
             </script>
         </form>
 
@@ -88,11 +103,11 @@
             </div>
             <label>Private or public?</label>
             <div class="form__checkbox">
-                <input value="1" type="checkbox" id="privatecheck" name="private" checked>
+                <input value="1" type="checkbox" id="privatechecks" name="private" checked>
                 <label for="private">Private</label>
             </div>
             <label>Owner of new contact:</label>
-            <select class="form__select" id="ownerofcontact">
+            <select class="form__select" id="ownerofcontacts">
                 <option value="admin">Self</option>
                 <option value="normal">Normalo</option>
             </select>
